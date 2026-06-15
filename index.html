@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content+"width=device-width, initial-scale=1.0">
+
+     <title>NØFACE</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#000;
+      color:#fff;
+      font-family:Arial, Helvetica, sans-serif;
+      overflow:hidden;
+    }
+
+    /* SCREEN */
+
+    .screen{
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-aling:center;
+      padding:20px;
+      transition:opacity .45 ease;
+    }
+    /* HIDDEN */
+
+    .hidden{
+      display:none;
+      opacity:0;
+    }
+
+    /* LOGO */
+
+    .logo{
+      width:320px;
+      max-width:85vw;
+      margin-bottom:65pc;
+    }
+
+    /*TITLE*/
+
+    .title{
+      font-size:24px;
+      font-weight:300;
+      letter-spacing:12px;
+      margin-bottom:65px;
+    }
+
+    /* TEXT*/
+
+    .text{
+      font-size:18px;
+      line-height:1.8;
+      opacity:.75;
+      margin-bottom:10px;
+    }
+
+    /* BUTTONS */
+
+    .button{
+      width:280px;
+      height:75px;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+
+      border:1px solid #fff;
+      background:transparent;
+      color:#fff;
+
+      text-decoration:none;
+
+      font-size:16px;
+      font-weight:300;
+      letter-spacing:6px;
+
+      cursor:pointer;
+
+      transition:.3s;
+    }
+
+    .button:hover{
+      background:#fff;
+      color:#000;
+
+      /* FOOTER*/
+
+      .footer{
+        position:absolute;
+        bottom:40px;
+        font-size:12px;
+        letter-spacing:4px;
+        opacity:.25;
+      }
+
+      /* FADE */
+
+      .fade-in{
+        animation:fadeIn .45s ease forwards;
+      }
+
+      @keyframe fadeIn{
+        from{
+        opacity:0;
+      }
+      to{
+      opacity:1;
+    }
+    }
+
+    </style>
+    </head>
+
+
+  <body>
+    
+<!-- SCREEN 1 -->
+    
+    <div id="screen1" class="screen">
+
+    <img src="logo-transaparent.png" alt="NØFACE" class="logo">
+
+    <div class="title">
+      SIGNAL DETECTED.
+    </div>
+
+      <button class="button" onclick="EnterSite()">
+        CONTINUE
+      </button>
+
+<!-- SCREEN 2 -->
+
+      <div id="screen2" class="screen hidden">
+
+      <img src="logo-transparent.png" alt="NØFACE" class="logo">
+
+      <div class="title">
+        IDENTITY REMOVED.
+      </div>
+
+      <div class="text">
+        The signal has been received.
+      </div>
+
+      REQUEST ACCESS
+
+      <div class="footer">
+        NØFACE
+      </div>
+
+      </div>
+
+<!-- SCRIPT -->
+      
+      <script>
+
+        funtion enterSite(){
+
+          const screen1 = document.getElementById('screen1')
+          const screen2 = document.getElementById('screen2')
+
+          screen1.style.opacity = "0";
+
+          setTimeout (() => {
+
+          screen1.style.display = "none";
+
+          screen2.classList.remove('hidden');
+          screen2.classList.add('fade-in');
+
+          }, 400);
+
+          }
+
+      </script>
+
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+  </body>
