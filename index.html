@@ -1,213 +1,155 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content+"width=device-width, initial-scale=1.0">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <title>NØFACE</title>
+<title>NØFACE</title>
 
-  <style>
+<style>
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
 
-    body{
-      background:#000;
-      color:#fff;
-      font-family:Arial, Helvetica, sans-serif;
-      overflow:hidden;
-    }
+body{
+background:#000;
+color:#fff;
+font-family:Arial, Helvetica, sans-serif;
+overflow:hidden;
+}
 
-    /* SCREEN */
+.screen{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
 
-    .screen{
-      height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-aling:center;
-      padding:20px;
-      transition:opacity .45 ease;
-    }
-    /* HIDDEN */
+.logo{
+font-size:120px;
+margin-bottom:30px;
+font-weight:300;
+}
 
-    .hidden{
-      display:none;
-      opacity:0;
-    }
+.title{
+font-size:20px;
+letter-spacing:6px;
+margin-bottom:20px;
+font-weight:400;
+}
 
-    /* LOGO */
+.text{
+max-width:600px;
+line-height:1.8;
+opacity:.8;
+margin-bottom:15px;
+}
 
-    .logo{
-      width:320px;
-      max-width:85vw;
-      margin-bottom:65pc;
-    }
+.button{
+margin-top:25px;
+padding:14px 35px;
+border:1px solid white;
+background:none;
+color:white;
+cursor:pointer;
+font-size:14px;
+letter-spacing:2px;
+text-decoration:none;
+transition:0.3s;
+}
 
-    /*TITLE*/
+.button:hover{
+background:white;
+color:black;
+}
 
-    .title{
-      font-size:24px;
-      font-weight:300;
-      letter-spacing:12px;
-      margin-bottom:65px;
-    }
+.hidden{
+display:none;
+}
 
-    /* TEXT*/
+.footer{
+margin-top:40px;
+font-size:12px;
+opacity:.4;
+letter-spacing:2px;
+}
 
-    .text{
-      font-size:18px;
-      line-height:1.8;
-      opacity:.75;
-      margin-bottom:10px;
-    }
+.fade{
+animation:fadeIn .8s ease;
+}
 
-    /* BUTTONS */
+@keyframes fadeIn{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
 
-    .button{
-      width:280px;
-      height:75px;
+</style>
+</head>
 
-      display:flex;
-      align-items:center;
-      justify-content:center;
+<body>
 
-      border:1px solid #fff;
-      background:transparent;
-      color:#fff;
+<!-- PANTALLA 1 -->
 
-      text-decoration:none;
+<div id="screen1" class="screen">
 
-      font-size:16px;
-      font-weight:300;
-      letter-spacing:6px;
+<div class="logo">Ø</div>
 
-      cursor:pointer;
+<div class="title">
+SIGNAL DETECTED.
+</div>
 
-      transition:.3s;
-    }
+<button class="button" onclick="enterSite()">
+CONTINUE
+</button>
 
-    .button:hover{
-      background:#fff;
-      color:#000;
+</div>
 
-      /* FOOTER*/
+<!-- PANTALLA 2 -->
 
-      .footer{
-        position:absolute;
-        bottom:40px;
-        font-size:12px;
-        letter-spacing:4px;
-        opacity:.25;
-      }
+<div id="screen2" class="screen hidden fade">
 
-      /* FADE */
+<div class="logo">Ø</div>
 
-      .fade-in{
-        animation:fadeIn .45s ease forwards;
-      }
+<div class="title">
+IDENTITY REMOVED.
+</div>
 
-      @keyframe fadeIn{
-        from{
-        opacity:0;
-      }
-      to{
-      opacity:1;
-    }
-    }
+<div class="text">
+NØFACE is a limited streetwear project built around anonymity, identity and trace.
+</div>
 
-    </style>
-    </head>
+<div class="text">
+Not everyone enters.
+</div>
 
+<a href="https://forms.gle/a7iCTqewmw7rtdPV7" class="button" target="_blank">
+REQUEST ACCESS
+</a>
 
-  <body>
-    
-<!-- SCREEN 1 -->
-    
-    <div id="screen1" class="screen">
+<div class="footer">
+NØFACE
+</div>
 
-    <img src="logo-transaparent.png" alt="NØFACE" class="logo">
+</div>
 
-    <div class="title">
-      SIGNAL DETECTED.
-    </div>
+<script>
 
-      <button class="button" onclick="EnterSite()">
-        CONTINUE
-      </button>
+function enterSite(){
+document.getElementById('screen1').style.display='none';
+document.getElementById('screen2').classList.remove('hidden');
+}
 
-<!-- SCREEN 2 -->
+</script>
 
-      <div id="screen2" class="screen hidden">
-
-      <img src="logo-transparent.png" alt="NØFACE" class="logo">
-
-      <div class="title">
-        IDENTITY REMOVED.
-      </div>
-
-      <div class="text">
-        The signal has been received.
-      </div>
-
-      REQUEST ACCESS
-
-      <div class="footer">
-        NØFACE
-      </div>
-
-      </div>
-
-<!-- SCRIPT -->
-      
-      <script>
-
-        funtion enterSite(){
-
-          const screen1 = document.getElementById('screen1')
-          const screen2 = document.getElementById('screen2')
-
-          screen1.style.opacity = "0";
-
-          setTimeout (() => {
-
-          screen1.style.display = "none";
-
-          screen2.classList.remove('hidden');
-          screen2.classList.add('fade-in');
-
-          }, 400);
-
-          }
-
-      </script>
-
-  </body>
+</body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-  </body>
